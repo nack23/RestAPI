@@ -1,0 +1,62 @@
+[
+  {
+    "name": "iphone",
+    "price": 154,
+    "feature": true,
+    "company": "apple"
+  },
+  {
+    "name": "iphone10",
+    "price": 1154,
+    "feature": true,
+    "company": "apple"
+  },
+  {
+    "name": "watch1",
+    "price": 654,
+    "feature": true,
+    "company": "apple"
+  },
+  {
+    "name": "watch2",
+    "price": 754,
+    "feature": true,
+    "company": "apple"
+  },
+  {
+    "name": "iphone11",
+    "price": 1254,
+    "feature": true,
+    "company": "samsung"
+  },
+  {
+    "name": "iphone12",
+    "price": 1354,
+    "feature": true,
+    "company": "samsung"
+  },
+  {
+    "name": "watch3",
+    "price": 854,
+    "feature": true,
+    "company": "samsung"
+  },
+  {
+    "name": "iphone13",
+    "price": 1454,
+    "feature": true,
+    "company": "mi"
+  },
+  {
+    "name": "watch4",
+    "price": 554,
+    "feature": true,
+    "company": "mi"
+  },
+  {
+    "name": "watch5",
+    "price": 594,
+    "feature": true,
+    "company": "mi"
+  }
+]
