@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>API Routes Info</title>
+
+<style>
+
+body{
+    margin:0;
+    font-family: Arial, Helvetica, sans-serif;
+    background:#0a0a0a;
+    color:white;
+}
+
+.container{
+    max-width:900px;
+    margin:40px auto;
+    padding:20px;
+}
+
+h1{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.card{
+    background:#111;
+    padding:20px;
+    margin-bottom:20px;
+    border-radius:15px;
+    border:1px solid red;
+    box-shadow:0 0 10px rgba(255,0,0,0.4);
+}
+
+.route{
+    font-size:18px;
+    color:#7CFC00;
+    margin-bottom:10px;
+}
+
+.desc{
+    color:#ccc;
+    margin-bottom:15px;
+    line-height:1.6;
+}
+
+.example{
+    background:#000;
+    padding:10px;
+    border-radius:8px;
+    border:1px solid #333;
+    font-size:14px;
+    color:#7CFC00;
+    margin-bottom:15px;
+}
+
+a{
+    display:inline-block;
+    padding:8px 18px;
+    background:#7CFC00;
+    color:black;
+    text-decoration:none;
+    border-radius:20px;
+    font-weight:bold;
+}
+
+a:hover{
+    background:#66dd00;
+}
+
+@media(max-width:600px){
+    .container{
+        padding:15px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🚀 Product API Routes</h1>
+
+
+<!-- FORM -->
+<div class="card">
+    <div class="route">GET /form</div>
+    <div class="desc">
+        Opens the product input form. You can add new product data using UI.
+    </div>
+
+    <div class="example">
+        Example:<br>
+        Open this route in browser to add product.
+    </div>
+
+    <a href="/form">Open</a>
+</div>
+
+
+<!-- see data -->
+<div class="card">
+    <div class="route">All data here in table</div>
+    <div class="desc">
+        see your data in ui new as well as old
+    </div>
+
+
+    <a href="/product-table.html">Open</a>
+</div>
+
+<!-- PRODUCT -->
+<div class="card">
+    <div class="route">GET /product</div>
+    <div class="desc">
+        Returns all products from database. Supports sorting and pagination.
+        You can sort by price, name etc and also fetch page wise data.
+    </div>
+
+    <div class="example">
+        Example:<br>
+        /product<br>
+        /product?sort=price<br>
+        /product?sort=-price&page=1&limitdata=3
+    </div>
+
+    <a href="/product">Open</a>
+</div>
+
+<!-- TEST -->
+<div class="card">
+    <div class="route">GET /test</div>
+    <div class="desc">
+        Testing route used for direct filtering using query parameters.
+        By default results are sorted by price (high to low).
+    </div>
+
+    <div class="example">
+        Example:<br>
+        /test?company=apple<br>
+        /test?rating=4.8
+    </div>
+
+    <a href="/test">Open</a>
+</div>
+
+<!-- FILTERED -->
+<div class="card">
+    <div class="route">GET /filtered</div>
+    <div class="desc">
+        Advanced filtering route. Supports name search, company filter,
+        sorting and selecting specific fields only.
+    </div>
+
+    <div class="example">
+        Example:<br>
+        /filtered?company=apple<br>
+        /filtered?name=iph<br>
+        /filtered?sort=-price<br>
+        /filtered?select=name,price
+    </div>
+
+    <a href="/filtered">Open</a>
+</div>
+
+
+<!-- ADD PRODUCT -->
+<div class="card">
+    <div class="route">POST /add-product</div>
+    <div class="desc">
+        Inserts new product into database using form data.
+        Requires product name, price and company.
+    </div>
+
+    <div class="example">
+        Example Body:<br>
+        {<br>
+        name: "iPhone 15",<br>
+        price: 90000,<br>
+        company: "apple"<br>
+        }
+    </div>
+
+    <a href="/form">Go To Form</a>
+</div>
+
+</div>
+
+</body>
+</html>

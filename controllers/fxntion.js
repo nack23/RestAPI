@@ -1,4 +1,5 @@
 let productdata=require("../model/schema.js");
+const path = require("path");
 
 let product= async(req,res)=>{
     let {sort,page,limitdata}=req.query;
@@ -58,4 +59,39 @@ let filtered= async(req,res)=>{
     
     res.status(200).json({mydata})
 }
-module.exports={product,producttesting,filtered}
+
+const formdata = async (req, res) => {
+    try {
+
+        let { name, price, company } = req.body;
+
+        let formDataObj = {
+            name,
+            price,
+            company
+        };
+
+        let formdt = await productdata.insertMany([formDataObj]);
+
+        // res.status(200).json({
+        //     success: true,
+        //     data: formdt
+        // });
+        res.sendFile(path.join(__dirname, "../public/success-add.html"));
+
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ success: false });
+    }
+};
+
+let htmlform = (req, res) => {
+    res.sendFile(path.join(__dirname, "../public/index.html"));
+
+};
+
+let homedata=async (req,res)=>{
+     res.sendFile(path.join(__dirname, "../public/routes-info.html"));
+}
+
+module.exports={product,producttesting,filtered,formdata,htmlform,homedata}

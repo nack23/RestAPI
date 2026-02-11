@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Product Dashboard</title>
+
+<style>
+
+body{
+    background: linear-gradient(135deg,#0a0a0a,#111);
+    color:white;
+    font-family: 'Segoe UI', Arial;
+    text-align:center;
+    margin:0;
+}
+
+/* Title */
+h2{
+    margin-top:30px;
+    color:#7CFC00;
+    letter-spacing:1px;
+}
+
+/* Table Container */
+.table-box{
+    width:95%;
+    max-width:1200px;
+    margin:40px auto;
+    padding:20px;
+    border-radius:15px;
+    background:#0f0f0f;
+    box-shadow:0 0 25px rgba(255,0,0,0.3);
+}
+
+/* Table */
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+/* Header */
+th{
+    padding:14px;
+    background:#000;
+    color:#7CFC00;
+    font-size:15px;
+    border-bottom:2px solid red;
+}
+
+/* Data */
+td{
+    padding:12px;
+    border-bottom:1px solid #222;
+}
+
+/* Hover Effect */
+tr:hover{
+    background:#1a1a1a;
+    transition:0.3s;
+}
+
+/* Zebra */
+tr:nth-child(even){
+    background:#121212;
+}
+
+/* Responsive */
+@media(max-width:768px){
+    table{
+        font-size:13px;
+    }
+    th,td{
+        padding:8px;
+    }
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h2>📦 Product Dashboard</h2>
+
+<div class="table-box">
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Price</th>
+<th>Company</th>
+<th>Rating</th>
+<th>Feature</th>
+<th>Date</th>
+</tr>
+</thead>
+
+<tbody id="tbody"></tbody>
+
+</table>
+
+</div>
+
+<script>
+
+fetch("/product")
+.then(res => res.json())
+.then(data => {
+
+    let tbody = document.getElementById("tbody");
+
+    data.mydata.reverse().forEach(item => {
+
+        let date = new Date(item.createdAt).toLocaleDateString();
+
+        tbody.innerHTML += `
+        <tr>
+            <td>${item.name}</td>
+            <td>₹ ${item.price}</td>
+            <td>${item.company.toUpperCase()}</td>
+            <td>⭐ ${item.rating}</td>
+            <td>${item.feature ? "✅ Yes" : "❌ No"}</td>
+            <td>${date}</td>
+        </tr>
+        `;
+
+    });
+
+});
+
+</script>
+
+</body>
+</html>

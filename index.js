@@ -7,7 +7,13 @@ require("dotenv").config();
 // app.get("/",(req,res)=>{
 //     res.send("hello how are you")
 // });
+
+app.use(express.json());  //for form
+app.use(express.urlencoded({ extended: true }));  //for form
 app.use("/",allroutes);
+
+app.use(express.static("public"));  // this is for public
+
 
 
 let start=async ()=>{
